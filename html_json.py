@@ -4,6 +4,7 @@ from typing import Callable
 from fastapi import Request
 from functools import wraps
 from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
 
 
 class HtmlJson:
@@ -22,6 +23,15 @@ class HtmlJson:
         params.append(request_param)
         wrapper.__signature__ = sig.replace(parameters=params)
 
+    def render_template(self, request: Request, result):
+        if isinstance(result, BaseModel):
+            result = result.dict()
+        elif isinstance(result, list):
+            result = {"data": result[:]}
+
+        result.update({"request": request})
+        return self.templates.TemplateResponse("index.html", result)
+
     def html_or_json(self, f: Callable):
         @wraps(f)
         async def wrapper(*args, **kwargs):
@@ -35,8 +45,7 @@ class HtmlJson:
 
             accept = request.headers["accept"].split(",")[0]
             if accept == "text/html":
-                result.update({"request": request})
-                return self.templates.TemplateResponse("index.html", result)
+                return self.render_template(request, result)
 
             return result
 
