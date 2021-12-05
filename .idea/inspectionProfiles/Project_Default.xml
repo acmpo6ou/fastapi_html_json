@@ -1,0 +1,109 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyArgumentListInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyAttributeOutsideInitInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyIncorrectDocstringInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="5">
+            <item index="0" class="java.lang.String" itemvalue="pytest-qt" />
+            <item index="1" class="java.lang.String" itemvalue="pytest" />
+            <item index="2" class="java.lang.String" itemvalue="pytest-cov" />
+            <item index="3" class="java.lang.String" itemvalue="PyGObject" />
+            <item index="4" class="java.lang.String" itemvalue="Xlib" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E731" />
+          <option value="E402" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+          <option value="N802" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="filter" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="PyQt5-stubs==5.15.2.0" />
+          <option value="PyGObject-stubs==0.0.2" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="utils" />
+          <option value="core.account_forms.myutils" />
+          <option value="core.account_forms.forms" />
+          <option value="core.db_forms.getaki" />
+          <option value="core.db_forms.*" />
+          <option value="core.PyQtAccounts.HelpTip" />
+          <option value="core.PyQtAccounts.getDbList" />
+          <option value="core.PyQtAccounts.WarningTip" />
+          <option value="core.PyQtAccounts.HELP_TIP_DB" />
+          <option value="core.PyQtAccounts.CreateDbForm" />
+          <option value="core.PyQtAccounts.OpenDbForm" />
+          <option value="core.PyQtAccounts.EditDbForm" />
+          <option value="core.PyQtAccounts.Dbs" />
+          <option value="core.PyQtAccounts.AppMenuBar" />
+          <option value="core.PyQtAccounts.time_for_updates" />
+          <option value="core.PyQtAccounts.UpdatesAvailable" />
+          <option value="core.updates.const" />
+          <option value="core.PyQtAccounts.DEBUG" />
+          <option value="core.PyQtAccounts.const" />
+          <option value="core.PyQtAccounts.check_for_updates" />
+          <option value="core.PyQtAccounts.QThread" />
+          <option value="core.updates.getVersion" />
+          <option value="akidump" />
+          <option value="genpass" />
+          <option value="core.windows.getDbList" />
+          <option value="core.PyQtAccounts.Index" />
+          <option value="PyQt5.QtWidgets.triggered.*" />
+          <option value="tests.func.test_create_database.PyQtAccounts" />
+          <option value="tests.func.test_create_database.Window" />
+          <option value="tests.func.test_open_database.Index" />
+          <option value="tests.func.test_edit_database.Index" />
+          <option value="tests.func.test_edit_database.getDbList" />
+          <option value="core.windows.hide" />
+          <option value="tests.func.test_import_export.getDbList" />
+          <option value="tests.func.test_import_export.Index" />
+          <option value="tests.func.base.Window" />
+          <option value="tests.func.test_main_db.Window" />
+          <option value="tests.func.test_settings.Window" />
+          <option value="core.windows.ShowChangelog" />
+          <option value="core.PyQtAccounts.Updating" />
+          <option value="core.PyQtAccounts.Settings" />
+          <option value="core.PyQtAccounts.testutils" />
+          <option value="core.PyQtAccounts.About" />
+          <option value="core.windows.getVersion" />
+          <option value="PyQt5.QtCore.pyqtSignal.emit" />
+          <option value="PyQt5.QtWidgets.clicked.*" />
+          <option value="git.refs.remote.*" />
+          <option value="PyQt5.QtCore.pyqtBoundSignal.*" />
+          <option value="tests.base.SetupMixin.monkeypatch" />
+          <option value="PyQt5.QtCore.started.connect" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
