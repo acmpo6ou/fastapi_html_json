@@ -7,5 +7,5 @@ hj = HtmlJson()
 
 @app.get("/")
 @hj.html_or_json
-async def root(request: Request):
+async def root():
     return {"message": "Hello World"}
