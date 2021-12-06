@@ -9,6 +9,10 @@ from pydantic import BaseModel
 
 class HtmlJson:
     def __init__(self, templates_dir: str = "templates"):
+        """
+        Provides @html_or_json decorator, see its documentation for more info.
+        :param templates_dir: directory containing jinja2 templates.
+        """
         self.templates = Jinja2Templates(templates_dir)
 
     @staticmethod
