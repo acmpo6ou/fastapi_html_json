@@ -13,6 +13,10 @@ class HtmlJson:
 
     @staticmethod
     def add_request_param(wrapper: Callable, f: Callable):
+        """
+        Adds `request` parameter to signature of wrapper if it's not there already.
+        :param f: decorated function.
+        """
         sig = signature(f)
         if 'request' in sig.parameters:
             return
@@ -24,6 +28,15 @@ class HtmlJson:
         wrapper.__signature__ = sig.replace(parameters=params)
 
     def render_template(self, template: str, request: Request, result):
+        """
+        Renders jinja2 template no matter what the view function returns: be it dictionary,
+        pydantic model or a list.
+
+        :param template: path to the template.
+        :param request: needed by TemplateResponse.
+        :param result: return value of the view function.
+        :return: rendered template.
+        """
         if isinstance(result, BaseModel):
             result = result.dict()
         elif isinstance(result, list):
@@ -33,6 +46,11 @@ class HtmlJson:
         return self.templates.TemplateResponse(template, result)
 
     def html_or_json(self, template: str):
+        """
+        A decorator that will make decorated async view function able to return jinja2 template
+        or json depending on Accept header of request.
+        :param template: path to jinja2 template.
+        """
         def decorator(f: Callable):
             @wraps(f)
             async def wrapper(*args, **kwargs):
