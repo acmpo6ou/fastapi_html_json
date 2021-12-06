@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from typing import List
 
 import uvicorn
 from fastapi import FastAPI
@@ -21,13 +22,13 @@ async def root(name: str):
     return {"message": f"Hello {name}"}
 
 
-@app.get("/user")
+@app.get("/user", response_model=User)
 @hj.html_or_json('user.html')
 async def user():
     return User(name="John", id=23)
 
 
-@app.get("/users")
+@app.get("/users", response_model=List[User])
 @hj.html_or_json('users.html')
 async def users():
     return [
