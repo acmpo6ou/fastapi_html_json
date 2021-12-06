@@ -23,31 +23,33 @@ class HtmlJson:
         params.append(request_param)
         wrapper.__signature__ = sig.replace(parameters=params)
 
-    def render_template(self, request: Request, result):
+    def render_template(self, template: str, request: Request, result):
         if isinstance(result, BaseModel):
             result = result.dict()
         elif isinstance(result, list):
             result = {"data": result[:]}
 
         result.update({"request": request})
-        return self.templates.TemplateResponse("index.html", result)
+        return self.templates.TemplateResponse(template, result)
 
-    def html_or_json(self, f: Callable):
-        @wraps(f)
-        async def wrapper(*args, **kwargs):
-            request = kwargs['request']
+    def html_or_json(self, template: str):
+        def decorator(f: Callable):
+            @wraps(f)
+            async def wrapper(*args, **kwargs):
+                request = kwargs['request']
 
-            try:
-                result = await f(*args, **kwargs)
-            except TypeError:
-                kwargs.pop('request')
-                result = await f(*args, **kwargs)
+                try:
+                    result = await f(*args, **kwargs)
+                except TypeError:
+                    kwargs.pop('request')
+                    result = await f(*args, **kwargs)
 
-            accept = request.headers["accept"].split(",")[0]
-            if accept == "text/html":
-                return self.render_template(request, result)
+                accept = request.headers["accept"].split(",")[0]
+                if accept == "text/html":
+                    return self.render_template(template, request, result)
 
-            return result
+                return result
 
-        self.add_request_param(wrapper, f)
-        return wrapper
+            self.add_request_param(wrapper, f)
+            return wrapper
+        return decorator
